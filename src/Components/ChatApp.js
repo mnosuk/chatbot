@@ -4,12 +4,9 @@ import 'antd/dist/antd.css'
 import ChatlistBox from './ChatlistBox'
 import MessageBox from './MessageBox'
 import { refreshChatbox, donePostChatbox } from '../utils/RestChat'
-import { postChatData } from '../api'
 
 class ChatApp extends React.Component {
   state= { data: null }
-
-  // test comment with jenkins
 
   async componentWillMount() {
     this.fetchData()
