@@ -9,6 +9,7 @@ import { postChatData } from '../api'
 class ChatApp extends React.Component {
   state= { data: null }
 
+  // test comment with jenkins
 
   async componentWillMount() {
     this.fetchData()
