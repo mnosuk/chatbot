@@ -5,15 +5,14 @@ import { Input, Button, Row, Col } from 'antd'
 class MessageBox extends React.Component {
   state = { text: '' }
   onClickButton = () => {
-    this.props.createChatData({ message: this.state.text, owner: 'Note' })
+    this.props.createChatData({ message: this.state.text, owner: 'Anonymous (ไม่บอกชื่อ)' })
     this.setState(() => ({ text: '' }))
   }
 
   handleTextbox = (e) => {
     const { value } = e.target
-    if (value !== '') {
-      this.setState(() => ({ text: value }))
-    }
+    console.log('current val:', value)
+    this.setState(() => ({ text: value }))
   }
   render() {
     return (

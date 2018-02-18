@@ -39,9 +39,5 @@ export default ChatList
 ChatList.propTypes = {
   owner: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  color: PropTypes.string,
-}
-
-ChatList.defaultProps = {
-  color: '#CCDBCC',
+  color: PropTypes.string.isRequired,
 }

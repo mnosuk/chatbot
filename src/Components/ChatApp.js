@@ -1,15 +1,19 @@
 import React from 'react'
-import { Row, Col } from 'antd'
+import { Row, Col, Switch } from 'antd'
 import 'antd/dist/antd.css'
 import ChatlistBox from './ChatlistBox'
 import MessageBox from './MessageBox'
 import { refreshChatbox, donePostChatbox } from '../utils/RestChat'
 
 class ChatApp extends React.Component {
-  state= { data: null }
+  state= { data: null, checkStatus: false }
 
   async componentWillMount() {
     this.fetchData()
+  }
+
+  handleDisabledChange = (change) => {
+    this.setState(() => ({ checkStatus: change }))
   }
 
   fetchData = async () => {
@@ -24,14 +28,16 @@ class ChatApp extends React.Component {
   }
 
   render() {
-    const { data } = this.state
+    const { data, checkStatus } = this.state
     return (
       <Row>
         <Col offset={1} span={22}>
           {
             data ?
               <div>
-                <ChatlistBox data={data} />
+                <Switch checked={checkStatus} onChange={e => this.handleDisabledChange(e)} />
+                <span>Toggle Style</span>
+                <ChatlistBox data={data} nightmode={checkStatus} />
                 <MessageBox createChatData={this.postData} />
               </div>
           :
