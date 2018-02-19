@@ -11,7 +11,6 @@ class MessageBox extends React.Component {
 
   handleTextbox = (e) => {
     const { value } = e.target
-    console.log('current val:', value)
     this.setState(() => ({ text: value }))
   }
   render() {
@@ -26,7 +25,7 @@ class MessageBox extends React.Component {
           />
         </Col>
         <Col span={1} >
-          <Button onClick={this.onClickButton} disabled={this.state.text === ''} >SEND</Button>
+          <Button onClick={e => this.onClickButton(e)} disabled={this.state.text === ''} >SEND</Button>
         </Col>
       </Row>
     )
